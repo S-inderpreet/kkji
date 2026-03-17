@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KK 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(180deg,#ffe6f0,#f3e8ff,#fff8f2);
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+/* HEADER */
+
+.hero h1{
+font-family:'Pacifico',cursive;
+font-size:clamp(2.2rem,6vw,3.5rem);
+color:#ff69b4;
+}
+
+.hero p{
+color:#6b5b7a;
+}
+
+/* HEARTS */
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+.heart{
+position:absolute;
+bottom:-20px;
+animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+to{transform:translateY(-110vh);}
+}
+
+/* POLAROID GRID */
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:30px;
+}
+
+.polaroid{
+background:white;
+padding:10px 10px 25px;
+border-radius:12px;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+width:220px;
+transform:rotate(calc(-3deg + 6deg * var(--r)));
+}
+
+.polaroid img{
+width:100%;
+height:200px;
+object-fit:cover;
+border-radius:10px;
+}
+
+/* MESSAGE */
+
+.message-box{
+margin-top:40px;
+background:white;
+border-radius:20px;
+padding:25px;
+font-family:'Pacifico',cursive;
+color:#5a4d7c;
+}
+
+/* COUNTER */
+
+.counter{
+margin-top:20px;
+color:#ff69b4;
+font-size:1.1rem;
+}
+
+/* BUTTON */
+
+.surprise-btn{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#ffb6d9;
+color:white;
+cursor:pointer;
+}
+
+.hidden-message{
+display:none;
+margin-top:15px;
+font-family:'Pacifico',cursive;
+color:#ff69b4;
+}
+
+footer{
+margin-top:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.polaroid{
+width:80%;
+}
+
+.polaroid img{
+height:180px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="hero">
+<h1>KK 💖</h1>
+<p>You’re my favorite chapter in this life.</p>
+</div>
+
+<!-- FIXED POLAROIDS -->
+
+<div class="gallery">
+
+<div class="polaroid" style="--r:0.2"><img src="i1.jpg"></div>
+<div class="polaroid" style="--r:0.7"><img src="i2.jpg"></div>
+<div class="polaroid" style="--r:0.4"><img src="i3.jpeg"></div>
+<div class="polaroid" style="--r:0.9"><img src="i4.jpeg"></div>
+
+</div>
+
+<!-- MESSAGE -->
+
+<div class="message-box">
+
+Dear KK,<br><br>
+
+I just wanted to create a small corner of the internet to say thank you. Thank you for existing, for your ridiculous laugh, and for being my anchor through every storm. You make life so much brighter just by being in it.<br><br>
+
+I love you, always.<br>
+Your bestie, Magical man
+
+</div>
+
+<!-- COUNTER -->
+
+<div class="counter">
+✨ We've been making memories for 498 days and counting ✨
+</div>
+
+<!-- SURPRISE -->
+
+<button class="surprise-btn" onclick="showSurprise()">Click me 💌</button>
+
+<div class="hidden-message" id="hiddenMsg">
+You are my safe place, my chaos partner, and my forever favorite human 💖
+</div>
+
+<footer>Made with love ❤️</footer>
+
+</div>
+
+<script>
+
+/* HEARTS */
+
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"%";
+document.getElementById("hearts").appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+}
+setInterval(createHeart,700);
+
+/* SURPRISE */
+
+function showSurprise(){
+document.getElementById("hiddenMsg").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
